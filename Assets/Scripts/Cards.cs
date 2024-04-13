@@ -22,30 +22,34 @@ public class Cards : MonoBehaviour
     }
     
     bool isCardVisible = true;
-    public Button button;
+    //public Button button;
+    /*
     public void ToggleCard()
     {
         isCardVisible = !isCardVisible;
         //Declaration_de_guerre_5p.GetComponent<Renderer>().enabled = isCardVisible;
     }
-
+    
     public void OnButtonClick()
     {
         Debug.Log("Carte cliquée !");
     }
+    */
     // Start is called before the first frame update
     void Start()
     {
-        button = GameObject.Find("Button2").GetComponent<Button>();
-        button.onClick.AddListener(OnButtonClick);
+        //button = GameObject.Find("Button2").GetComponent<Button>();
+        //button.onClick.AddListener(OnButtonClick);
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if(Input.GetMouseButtonDown(0))
         {
             ToggleCard();
         }
+        */
     }
 }
