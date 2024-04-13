@@ -21,7 +21,7 @@ public class Cards : MonoBehaviour
         } 
     }
     
-    bool isCardVisible = true;
+    //bool isCardVisible = true;
     //public Button button;
     /*
     public void ToggleCard()
