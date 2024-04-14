@@ -6,21 +6,24 @@ using UnityEngine.UI;
 
 public class Agents : MonoBehaviour
 {
-    static int argent;
+    static int money;
     static int jaugePolitique = 100;
     static int jaugeNoblesse = 100;
     static int jaugeMilitaire = 100;
+    static int eventRound = 1;
+    static int round = 1;
     public string scene;
     public Button button1;
     public Button button2;
     public Button button3;
     public Button button4;
     public Button button5;
-    static List<string> cardsName = new List<string>();
-    List<GameObject> allCards = new List<GameObject>();
-    List<GameObject> deck = new List<GameObject>();
+    public Button buttonStartRound;
+    static List<string> deck = new List<string>();
+    static List<GameObject> allCards = new List<GameObject>();
     System.Random random = new System.Random();
     int index;
+    int x;
     
     public void LoadScene(string sceneName)
     {
@@ -31,13 +34,13 @@ public class Agents : MonoBehaviour
         switch(cardName)
         {
             case "15 pieces":
-                argent += 15;
+                money += 15;
             break;
             case "30 pieces":
-                argent += 30;
+                money += 30;
             break;
             case "50 pieces":
-                argent += 50;
+                money += 50;
             break;     
             case "Complot_5p":
                 jaugePolitique += 10;
@@ -121,7 +124,7 @@ public class Agents : MonoBehaviour
                 jaugeMilitaire += 40;
             break;
             default:
-                Debug.Log("argent = " + argent);
+                Debug.Log("argent = " + money);
             break;
         }
     }
@@ -129,7 +132,8 @@ public class Agents : MonoBehaviour
     {
         if(scene == "button1")
         {
-            Action(cardsName[0]);
+            Action(deck[0]);
+            deck.RemoveAt(0);
             LoadScene("Game");    
         }  
     }
@@ -137,7 +141,8 @@ public class Agents : MonoBehaviour
     {
         if(scene == "button2")
         {
-            Action(cardsName[1]);
+            Action(deck[1]);
+            deck.RemoveAt(1);
             LoadScene("Game");      
         } 
     }
@@ -145,7 +150,8 @@ public class Agents : MonoBehaviour
     {
         if(scene == "button3")
         {
-            Action(cardsName[2]);
+            Action(deck[2]);
+            deck.RemoveAt(2);
             LoadScene("Game");    
         }
     }
@@ -153,7 +159,8 @@ public class Agents : MonoBehaviour
     {
         if(scene == "button4")
         {
-                Action(cardsName[3]);
+                Action(deck[3]);
+                deck.RemoveAt(3);
                 LoadScene("Game");  
         }
     }
@@ -161,14 +168,16 @@ public class Agents : MonoBehaviour
     {
         if(scene == "button5")
         {
-                Action(cardsName[4]);
+                Action(deck[4]);
+                deck.RemoveAt(4);
                 LoadScene("Game");
         }
    
     }
     void DrawCards(int number)
     {
-
+        deck.Clear();
+        allCards.Clear();
         foreach (Transform child in Cards.Instance.transform)
         {
             allCards.Add(child.gameObject);
@@ -177,16 +186,17 @@ public class Agents : MonoBehaviour
         while(deck.Count<number)
         {
             index = random.Next(0, allCards.Count);
-            if(!deck.Contains(allCards[index]))
+            if(!deck.Contains(allCards[index].name) && allCards != null)
             {
-                deck.Add(allCards[index]);
+                deck.Add(allCards[index].name);
             }
             
         }
     }
 
-    void DisplayCard(GameObject card, int posX)
+    void DisplayCard(string cardName, int posX)
     {
+        GameObject card = GameObject.Find(cardName);
         Vector2 position = card.transform.position;
         Vector2 scale = card.transform.localScale;
 
@@ -199,29 +209,59 @@ public class Agents : MonoBehaviour
         card.transform.localScale = scale;
         card.GetComponent<Renderer>().enabled = true;
     }
+
+    void StartRound()
+    {
+        LoadScene("AgentsScene");
+    }
     
     void Start()
     {
-        Debug.Log("Argent1 = " + argent);
         if(scene == "game")
         {
-            Debug.Log("Argent = " + argent);
+            /*
+            Debug.Log("Argent = " + money);
             Debug.Log("Jauge politique = " + jaugePolitique);
             Debug.Log("Jauge noblesse = " + jaugeNoblesse);
             Debug.Log("Jauge militaire = " + jaugeMilitaire);
+            */
+            Debug.Log("Tour : " + round);
         }
 
         if (scene == "AgentsScene")
         {
-            DrawCards(5);
-            int x = -8;
-            foreach (GameObject card in deck)
-            {
-                DisplayCard(card, x);
-                x += 4;
-                cardsName.Add(card.name);
+            switch(round){
+            case 1:
+                DrawCards(5);
+                x = -8;
+                foreach (string cardName in deck)
+                {
+                    DisplayCard(cardName, x);
+                    x += 4;
+                }
+                round = 2;
+            break;
+            case 2:
+                x = -8;
+                foreach (string cardName in deck)
+                {
+                    DisplayCard(cardName, x);
+                    x += 4;
+                }
+                round = 3;
+                
+            break;
+            case 3:
+                x = -8;
+                foreach (string cardName in deck)
+                {
+                    DisplayCard(cardName, x);
+                    x += 4;
+                }
+                round = 1;
+                eventRound += 1;
+            break;
             }
-            
         }
         if (scene == "button1" || scene == "button2" || scene == "button3" || scene == "button4" || scene == "button5"){
             button1 = GameObject.Find("button1").GetComponent<Button>();
@@ -238,6 +278,11 @@ public class Agents : MonoBehaviour
 
             button5 = GameObject.Find("button5").GetComponent<Button>();
             button5.onClick.AddListener(PlayCard5);
+        }
+        if (scene == "buttonStartRound")
+        {
+            buttonStartRound = GameObject.Find("buttonStartRound").GetComponent<Button>();
+            buttonStartRound.onClick.AddListener(StartRound);
         }
     }
 
