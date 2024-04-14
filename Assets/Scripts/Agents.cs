@@ -24,7 +24,8 @@ public class Agents : MonoBehaviour
     public Button button4;
     public Button button5;
     static List<string> deck = new List<string>();
-    static string playedCard;
+    public static string PlayedCardA { get { return playedCardA; } }
+    static string playedCardA;
     static List<GameObject> allCards = new List<GameObject>();
     System.Random random = new System.Random();
     int index;
@@ -219,7 +220,7 @@ public class Agents : MonoBehaviour
         if(scene == "button1")
         {
             Action(deck[0]);
-            playedCard = deck[0];
+            playedCardA = deck[0];
             deck.RemoveAt(0);
             LoadScene("Game");    
         }  
@@ -229,7 +230,7 @@ public class Agents : MonoBehaviour
         if(scene == "button2")
         {
             Action(deck[1]);
-            playedCard = deck[1];
+            playedCardA = deck[1];
             deck.RemoveAt(1);
             LoadScene("Game");      
         } 
@@ -239,7 +240,7 @@ public class Agents : MonoBehaviour
         if(scene == "button3")
         {
             Action(deck[2]);
-            playedCard = deck[2];
+            playedCardA = deck[2];
             deck.RemoveAt(2);
             LoadScene("Game");    
         }
@@ -248,20 +249,20 @@ public class Agents : MonoBehaviour
     {
         if(scene == "button4")
         {
-                Action(deck[3]);
-                playedCard = deck[3];
-                deck.RemoveAt(3);
-                LoadScene("Game");  
+            Action(deck[3]);
+            playedCardA = deck[3];
+            deck.RemoveAt(3);
+            LoadScene("Game");  
         }
     }
     public void PlayCard5()
     {
         if(scene == "button5")
         {
-                Action(deck[4]);
-                playedCard = deck[4];
-                deck.RemoveAt(4);
-                LoadScene("Game");
+            Action(deck[4]);
+            playedCardA = deck[4];
+            deck.RemoveAt(4);
+            LoadScene("Game");
         }
    
     }
@@ -304,15 +305,6 @@ public class Agents : MonoBehaviour
     
     void Start()
     {
-        if(scene == "game")
-        {
-            Debug.Log("Tour : " + round);
-            if(playedCard != null)
-            {
-                DisplayCard(playedCard, -9);
-            }
-        }
-
         if (scene == "AgentsScene")
         {
             switch(round){

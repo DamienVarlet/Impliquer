@@ -16,21 +16,43 @@ public class Gauge : MonoBehaviour
     int jaugeNoblesseR = Royalists.JaugeNoblesseR;
     int jaugeMilitaireR = Royalists.JaugeMilitaireR;
     public TextMeshProUGUI gauge;
+    string player = Turn.Player;
     void Start()
     {
-        switch(gauge.gameObject.name){
-            case "political gauge":
-                jaugePolitique = jaugePolitique + jaugePolitiqueA - jaugePolitiqueR;
-                gauge.text = "Jauge politique : " + jaugePolitique;
-            break;
-            case "nobility gauge":
-                jaugeNoblesse = jaugeNoblesse + jaugeNoblesseA - jaugeNoblesseR;
-                gauge.text = "Jauge noblesse : " + jaugeNoblesse;
-            break;
-            case "military gauge":
-                jaugeMilitaire = jaugeMilitaire + jaugeMilitaireA - jaugeMilitaireR;
-                gauge.text = "Jauge militaire : " + jaugeMilitaire;
-            break;
+        Debug.Log("Player : " + player);
+        if(player == "Royalist")
+        {
+            switch(gauge.gameObject.name){
+                case "political gauge":
+                    jaugePolitique += jaugePolitiqueA;
+                    gauge.text = "Jauge politique : " + jaugePolitique;
+                break;
+                case "nobility gauge":
+                    jaugeNoblesse += jaugeNoblesseA;
+                    gauge.text = "Jauge noblesse : " + jaugeNoblesse;
+                break;
+                case "military gauge":
+                    jaugeMilitaire += jaugeMilitaireA;
+                    gauge.text = "Jauge militaire : " + jaugeMilitaire;
+                break;
+            }
+        }
+        if(player == "Agent")
+        {
+            switch(gauge.gameObject.name){
+                case "political gauge":
+                    jaugePolitique -= jaugePolitiqueR;
+                    gauge.text = "Jauge politique : " + jaugePolitique;
+                break;
+                case "nobility gauge":
+                    jaugeNoblesse -= jaugeNoblesseR;
+                    gauge.text = "Jauge noblesse : " + jaugeNoblesse;
+                break;
+                case "military gauge":
+                    jaugeMilitaire -= jaugeMilitaireR;
+                    gauge.text = "Jauge militaire : " + jaugeMilitaire;
+                break;
+            }
         }
     }
 
