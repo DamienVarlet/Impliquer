@@ -18,9 +18,9 @@ public class PlayCard : MonoBehaviour
     }
         public void OnButtonClick()
     {
-        Debug.Log("bouton cliqué!");
-        
-        LoadScene("Game");      
+            Debug.Log("bouton cliqué!");
+            
+            LoadScene("Game");      
     }
     void Start()
     {
