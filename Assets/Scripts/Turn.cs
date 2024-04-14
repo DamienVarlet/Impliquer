@@ -11,19 +11,31 @@ public class Turn : MonoBehaviour
     public static int Round { get { return round; } }
     static int round = 0;
     public Button buttonStartRound;
+    static string player = "Agent";
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
     void StartRound()
     {
-        round += 1;
-        if(round == 4)
+        switch (player)
         {
-            round = 1;
-            eventRound += 1;
+            case "Agent":
+                round += 1;
+                if(round == 4)
+                {
+                    round = 1;
+                    eventRound += 1;
+                }
+                player = "Royalist";
+                LoadScene("AgentsScene");
+            break;
+            case "Royalist":
+                
+                player = "Agent";
+                LoadScene("RoyalistScene");
+            break;
         }
-        LoadScene("AgentsScene");
     }
     void Start()
     {

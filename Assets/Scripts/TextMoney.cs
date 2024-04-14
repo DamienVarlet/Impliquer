@@ -6,7 +6,7 @@ using TMPro;
 
 public class TextMoney : MonoBehaviour
 {
-    int money = Agents.Money;
+    int money = Royalists.Money;
     public TextMeshProUGUI moneyView;
     void Start()
     {

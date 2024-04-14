@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartGame.unity
     guid: f03e78ea57e4b7e4bab3086c8a0b6fab
+  - enabled: 1
+    path: Assets/Scenes/RoyalistScene.unity
+    guid: 168d73467068d1a43b9243d238684934
   m_configObjects: {}

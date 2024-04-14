@@ -6,21 +6,30 @@ using TMPro;
 
 public class Gauge : MonoBehaviour
 {
-    int politique = Agents.JaugePolitique;
-    int noblesse = Agents.JaugeNoblesse;
-    int militaire = Agents.JaugeMilitaire;
+    static int jaugePolitique = 100;
+    static int jaugeNoblesse = 100;
+    static int jaugeMilitaire = 100;
+    int jaugePolitiqueA = Agents.JaugePolitiqueA;
+    int jaugeNoblesseA = Agents.JaugeNoblesseA;
+    int jaugeMilitaireA = Agents.JaugeMilitaireA;
+    int jaugePolitiqueR = Royalists.JaugePolitiqueR;
+    int jaugeNoblesseR = Royalists.JaugeNoblesseR;
+    int jaugeMilitaireR = Royalists.JaugeMilitaireR;
     public TextMeshProUGUI gauge;
     void Start()
     {
         switch(gauge.gameObject.name){
             case "political gauge":
-                gauge.text = "Jauge politique : " + politique;
+                jaugePolitique = jaugePolitique + jaugePolitiqueA - jaugePolitiqueR;
+                gauge.text = "Jauge politique : " + jaugePolitique;
             break;
             case "nobility gauge":
-                gauge.text = "Jauge noblesse : " + noblesse;
+                jaugeNoblesse = jaugeNoblesse + jaugeNoblesseA - jaugeNoblesseR;
+                gauge.text = "Jauge noblesse : " + jaugeNoblesse;
             break;
             case "military gauge":
-                gauge.text = "Jauge militaire : " + militaire;
+                jaugeMilitaire = jaugeMilitaire + jaugeMilitaireA - jaugeMilitaireR;
+                gauge.text = "Jauge militaire : " + jaugeMilitaire;
             break;
         }
     }

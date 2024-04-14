@@ -11,12 +11,12 @@ public class Agents : MonoBehaviour
     static int money;
     int eventRound = Turn.EventRound;
     int round = Turn.Round;
-    public static int JaugePolitique { get { return jaugePolitique; } }
-    static int jaugePolitique = 100;
-    public static int JaugeNoblesse { get { return jaugeNoblesse; } }
-    static int jaugeNoblesse = 100;
-    public static int JaugeMilitaire { get { return jaugeMilitaire; } }
-    static int jaugeMilitaire = 100;
+    public static int JaugePolitiqueA { get { return jaugePolitiqueA; } }
+    static int jaugePolitiqueA = 0;
+    public static int JaugeNoblesseA { get { return jaugeNoblesseA; } }
+    static int jaugeNoblesseA = 0;
+    public static int JaugeMilitaireA { get { return jaugeMilitaireA; } }
+    static int jaugeMilitaireA = 0;
     public string scene;
     public Button button1;
     public Button button2;
@@ -48,111 +48,165 @@ public class Agents : MonoBehaviour
                 money += 50;
             break;     
             case "Complot_5p":
-                jaugePolitique += 10;
+                jaugePolitiqueA = 10;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 0;
                 money -= 5;
             break;
             case "Complot_10p":
-                jaugePolitique += 20;
+                jaugePolitiqueA = 20;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 0;
                 money -= 10;
             break;
             case "Complot_20p":
-                jaugePolitique += 40;
+                jaugePolitiqueA = 40;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 0;
                 money -= 20;
             break;
             case "Discours_5p":
-                jaugePolitique += 10;
+                jaugePolitiqueA = 10;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 0;
                 money -= 5;
             break;
             case "Discours_10p":
-                jaugePolitique += 20;
+                jaugePolitiqueA = 20;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 0;
                 money -= 10;
             break;
             case "Discours_20p":
-                jaugePolitique += 40;
+                jaugePolitiqueA = 40;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 0;
                 money -= 20;
             break;
             case "Assassinat_5p":
-                jaugePolitique += 10;
+                jaugePolitiqueA = 10;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 0;
                 money -= 5;
             break;
             case "Assassinat_10p":
-                jaugePolitique += 20;
+                jaugePolitiqueA = 20;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 0;
                 money -= 10;
             break;
             case "Assassinat_20p":
-                jaugePolitique += 40;
+                jaugePolitiqueA = 40;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 0;
                 money -= 20;
             break;
             case "Privilèges_5p":
-                jaugeNoblesse += 10;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 10;
+                jaugeMilitaireA = 0;
                 money -= 5;
             break;
             case "Privilèges_10p":
-                jaugeNoblesse += 20;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 20;
+                jaugeMilitaireA = 0;
                 money -= 10;
             break;
             case "Privilèges_20p":
-                jaugeNoblesse += 40;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 40;
+                jaugeMilitaireA = 0;
                 money -= 20;
             break;
             case "Mariage_5p":
-                jaugeNoblesse += 10;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 10;
+                jaugeMilitaireA = 0;
                 money -= 5;
             break;
             case "Mariage_10p":
-                jaugeNoblesse += 20;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 20;
+                jaugeMilitaireA = 0;
                 money -= 10;
             break;
             case "Mariage_20p":
-                jaugeNoblesse += 40;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 40;
+                jaugeMilitaireA = 0;
                 money -= 20;
             break;
             case "Pot de vin_5p":
-                jaugeNoblesse += 10;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 10;
+                jaugeMilitaireA = 0;
                 money -= 5;
             break;
             case "Pot de vin_10p":
-                jaugeNoblesse += 20;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 20;
+                jaugeMilitaireA = 0;
                 money -= 10;
             break;
             case "Pot de vin_20p":
-                jaugeNoblesse += 40;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 40;
+                jaugeMilitaireA = 0;
                 money -= 20;
             break;
             case "Declaration de guerre_5p":
-                jaugeMilitaire += 10;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 10;
                 money -= 5;
             break; 
             case "Declaration de guerre_10p":
-                jaugeMilitaire += 20;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 20;
                 money -= 10;
             break;   
             case "Declaration de guerre_20p":
-                jaugeMilitaire += 40;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 40;
                 money -= 20;
             break;
             case "Mutinerie_5p":
-                jaugeMilitaire += 10;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 10;
                 money -= 5;
             break; 
             case "Mutinerie_10p":
-                jaugeMilitaire += 20;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 20;
                 money -= 10;
             break;   
             case "Mutinerie_20p":
-                jaugeMilitaire += 40;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 40;
                 money -= 20;
             break;
             case "Alliance_5p":
-                jaugeMilitaire += 10;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 10;
                 money -= 5;
             break; 
             case "Alliance_10p":
-                jaugeMilitaire += 20;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 20;
                 money -= 10;
             break;   
             case "Alliance_20p":
-                jaugeMilitaire += 40;
+                jaugePolitiqueA = 0;
+                jaugeNoblesseA = 0;
+                jaugeMilitaireA = 40;
                 money -= 20;
             break;
             default:
