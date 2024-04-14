@@ -1,45 +1,35 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 using Image = UnityEngine.UI.Image;
-using Button = UnityEngine.UI.Button;
+using JetBrains.Annotations;
 
 public class LoadEventCard : MonoBehaviour
 {
+    public GameObject event1Button;
     // Start is called before the first frame update
-    public Sprite eventCard;
-    public UnityEngine.UI.Button event1Button;
     void Start()
     {
         LoadEvent1();
-
     }
-
-    public void LoadEvent1(){
-        event1Button = GameObject.Find("Event1").GetComponent<Button>();
-        Image event1ButtonImage = event1Button.GetComponent<Image>();
-        int eventNumber = UnityEngine.Random.Range(1, 4);
-        String nameTemplate = "Images/Events/Ev{0}";
-        String eventName = String.Format(nameTemplate, eventNumber);
-        Debug.Log(eventName);
-        eventCard = Resources.Load<Sprite>(eventName);
-        // Image[] test = Resources.LoadAll<Image>("");
-        // Debug.Log(test.Length);
-        // foreach (Image s in test){
-        //     Debug.Log(s.name);
-        // }
-        event1ButtonImage.sprite = eventCard;
-    }
-
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void LoadEvent1(){
+        Sprite event1Image;
+        event1Button = GameObject.Find("event1");
+        Debug.Log(event1Button.name + "Bouton event1 chargé");
+        String nameTemplate = "Events/Ev{0}";
+        int eventNumber = Random.Range(1, 4);
+        String event1Name = String.Format(nameTemplate, eventNumber);
+        Debug.Log(event1Name);
+        event1Image = Resources.Load<Sprite>(event1Name);
+        Debug.Log(event1Image.name + "Evènement chargé");
+        Image event1ButtonImage = event1Button.GetComponent<Image>();
+        event1ButtonImage.sprite = event1Image;
     }
 }
