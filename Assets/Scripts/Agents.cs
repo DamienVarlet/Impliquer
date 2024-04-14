@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class Agents : MonoBehaviour
 {
     static int money;
+    public static int JaugePolitique { get { return jaugePolitique; } }
     static int jaugePolitique = 100;
+    public static int JaugeNoblesse { get { return jaugeNoblesse; } }
     static int jaugeNoblesse = 100;
+    public static int JaugeMilitaire { get { return jaugeMilitaire; } }
     static int jaugeMilitaire = 100;
     static int eventRound = 1;
     static int round = 1;
@@ -20,6 +24,7 @@ public class Agents : MonoBehaviour
     public Button button5;
     public Button buttonStartRound;
     static List<string> deck = new List<string>();
+    static string playedCard;
     static List<GameObject> allCards = new List<GameObject>();
     System.Random random = new System.Random();
     int index;
@@ -133,6 +138,7 @@ public class Agents : MonoBehaviour
         if(scene == "button1")
         {
             Action(deck[0]);
+            playedCard = deck[0];
             deck.RemoveAt(0);
             LoadScene("Game");    
         }  
@@ -142,6 +148,7 @@ public class Agents : MonoBehaviour
         if(scene == "button2")
         {
             Action(deck[1]);
+            playedCard = deck[1];
             deck.RemoveAt(1);
             LoadScene("Game");      
         } 
@@ -151,6 +158,7 @@ public class Agents : MonoBehaviour
         if(scene == "button3")
         {
             Action(deck[2]);
+            playedCard = deck[2];
             deck.RemoveAt(2);
             LoadScene("Game");    
         }
@@ -160,6 +168,7 @@ public class Agents : MonoBehaviour
         if(scene == "button4")
         {
                 Action(deck[3]);
+                playedCard = deck[3];
                 deck.RemoveAt(3);
                 LoadScene("Game");  
         }
@@ -169,6 +178,7 @@ public class Agents : MonoBehaviour
         if(scene == "button5")
         {
                 Action(deck[4]);
+                playedCard = deck[4];
                 deck.RemoveAt(4);
                 LoadScene("Game");
         }
@@ -219,13 +229,11 @@ public class Agents : MonoBehaviour
     {
         if(scene == "game")
         {
-            /*
-            Debug.Log("Argent = " + money);
-            Debug.Log("Jauge politique = " + jaugePolitique);
-            Debug.Log("Jauge noblesse = " + jaugeNoblesse);
-            Debug.Log("Jauge militaire = " + jaugeMilitaire);
-            */
             Debug.Log("Tour : " + round);
+            if(playedCard != null)
+            {
+                DisplayCard(playedCard, -9);
+            }
         }
 
         if (scene == "AgentsScene")
