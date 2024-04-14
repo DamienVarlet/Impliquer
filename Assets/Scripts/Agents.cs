@@ -7,22 +7,22 @@ using TMPro;
 
 public class Agents : MonoBehaviour
 {
+    public static int Money { get { return money; } }
     static int money;
+    int eventRound = Turn.EventRound;
+    int round = Turn.Round;
     public static int JaugePolitique { get { return jaugePolitique; } }
     static int jaugePolitique = 100;
     public static int JaugeNoblesse { get { return jaugeNoblesse; } }
     static int jaugeNoblesse = 100;
     public static int JaugeMilitaire { get { return jaugeMilitaire; } }
     static int jaugeMilitaire = 100;
-    static int eventRound = 1;
-    static int round = 1;
     public string scene;
     public Button button1;
     public Button button2;
     public Button button3;
     public Button button4;
     public Button button5;
-    public Button buttonStartRound;
     static List<string> deck = new List<string>();
     static string playedCard;
     static List<GameObject> allCards = new List<GameObject>();
@@ -49,84 +49,111 @@ public class Agents : MonoBehaviour
             break;     
             case "Complot_5p":
                 jaugePolitique += 10;
+                money -= 5;
             break;
             case "Complot_10p":
                 jaugePolitique += 20;
+                money -= 10;
             break;
             case "Complot_20p":
                 jaugePolitique += 40;
+                money -= 20;
             break;
             case "Discours_5p":
                 jaugePolitique += 10;
+                money -= 5;
             break;
             case "Discours_10p":
                 jaugePolitique += 20;
+                money -= 10;
             break;
             case "Discours_20p":
                 jaugePolitique += 40;
+                money -= 20;
             break;
-            case "Assasinat_5p":
+            case "Assassinat_5p":
                 jaugePolitique += 10;
+                money -= 5;
             break;
-            case "Assasinat_10p":
+            case "Assassinat_10p":
                 jaugePolitique += 20;
+                money -= 10;
             break;
-            case "Assasinat_20p":
+            case "Assassinat_20p":
                 jaugePolitique += 40;
+                money -= 20;
             break;
             case "Privilèges_5p":
                 jaugeNoblesse += 10;
+                money -= 5;
             break;
             case "Privilèges_10p":
                 jaugeNoblesse += 20;
+                money -= 10;
             break;
             case "Privilèges_20p":
                 jaugeNoblesse += 40;
+                money -= 20;
             break;
             case "Mariage_5p":
                 jaugeNoblesse += 10;
+                money -= 5;
             break;
             case "Mariage_10p":
                 jaugeNoblesse += 20;
+                money -= 10;
             break;
             case "Mariage_20p":
                 jaugeNoblesse += 40;
+                money -= 20;
             break;
             case "Pot de vin_5p":
                 jaugeNoblesse += 10;
+                money -= 5;
             break;
             case "Pot de vin_10p":
                 jaugeNoblesse += 20;
+                money -= 10;
             break;
             case "Pot de vin_20p":
                 jaugeNoblesse += 40;
+                money -= 20;
             break;
             case "Declaration de guerre_5p":
                 jaugeMilitaire += 10;
+                money -= 5;
             break; 
             case "Declaration de guerre_10p":
                 jaugeMilitaire += 20;
+                money -= 10;
             break;   
             case "Declaration de guerre_20p":
                 jaugeMilitaire += 40;
+                money -= 20;
             break;
             case "Mutinerie_5p":
                 jaugeMilitaire += 10;
+                money -= 5;
             break; 
             case "Mutinerie_10p":
                 jaugeMilitaire += 20;
+                money -= 10;
             break;   
             case "Mutinerie_20p":
                 jaugeMilitaire += 40;
+                money -= 20;
             break;
             case "Alliance_5p":
                 jaugeMilitaire += 10;
+                money -= 5;
             break; 
             case "Alliance_10p":
                 jaugeMilitaire += 20;
+                money -= 10;
             break;   
             case "Alliance_20p":
                 jaugeMilitaire += 40;
+                money -= 20;
             break;
             default:
                 Debug.Log("argent = " + money);
@@ -199,6 +226,7 @@ public class Agents : MonoBehaviour
             if(!deck.Contains(allCards[index].name) && allCards != null)
             {
                 deck.Add(allCards[index].name);
+                Debug.Log(allCards[index].name);
             }
             
         }
@@ -218,11 +246,6 @@ public class Agents : MonoBehaviour
         card.transform.position = position;
         card.transform.localScale = scale;
         card.GetComponent<Renderer>().enabled = true;
-    }
-
-    void StartRound()
-    {
-        LoadScene("AgentsScene");
     }
     
     void Start()
@@ -247,7 +270,6 @@ public class Agents : MonoBehaviour
                     DisplayCard(cardName, x);
                     x += 4;
                 }
-                round = 2;
             break;
             case 2:
                 x = -8;
@@ -256,7 +278,6 @@ public class Agents : MonoBehaviour
                     DisplayCard(cardName, x);
                     x += 4;
                 }
-                round = 3;
                 
             break;
             case 3:
@@ -266,8 +287,6 @@ public class Agents : MonoBehaviour
                     DisplayCard(cardName, x);
                     x += 4;
                 }
-                round = 1;
-                eventRound += 1;
             break;
             }
         }
@@ -286,11 +305,6 @@ public class Agents : MonoBehaviour
 
             button5 = GameObject.Find("button5").GetComponent<Button>();
             button5.onClick.AddListener(PlayCard5);
-        }
-        if (scene == "buttonStartRound")
-        {
-            buttonStartRound = GameObject.Find("buttonStartRound").GetComponent<Button>();
-            buttonStartRound.onClick.AddListener(StartRound);
         }
     }
 

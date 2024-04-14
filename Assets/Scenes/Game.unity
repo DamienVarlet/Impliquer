@@ -2539,7 +2539,6 @@ MonoBehaviour:
   button3: {fileID: 0}
   button4: {fileID: 0}
   button5: {fileID: 0}
-  buttonStartRound: {fileID: 0}
 --- !u!4 &1147255935
 Transform:
   m_ObjectHideFlags: 0
@@ -3495,16 +3494,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1620945656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6fa3c34b5794754e8631c882c76157f, type: 3}
+  m_Script: {fileID: 11500000, guid: 28759a264efe3dc47916b0b562d213f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: buttonStartRound
-  button1: {fileID: 0}
-  button2: {fileID: 0}
-  button3: {fileID: 0}
-  button4: {fileID: 0}
-  button5: {fileID: 0}
-  buttonStartRound: {fileID: 1620945658}
+  buttonStartRound: {fileID: 0}
 --- !u!1 &1640402373
 GameObject:
   m_ObjectHideFlags: 0
