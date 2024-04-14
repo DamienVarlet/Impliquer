@@ -262,6 +262,7 @@ MonoBehaviour:
   button3: {fileID: 1328738309}
   button4: {fileID: 214594780}
   button5: {fileID: 797345537}
+  buttonStartRound: {fileID: 0}
 --- !u!1 &214594777
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +402,7 @@ MonoBehaviour:
   button3: {fileID: 1328738309}
   button4: {fileID: 214594780}
   button5: {fileID: 797345537}
+  buttonStartRound: {fileID: 0}
 --- !u!1 &235944764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,6 +1273,7 @@ MonoBehaviour:
   button3: {fileID: 1328738309}
   button4: {fileID: 214594780}
   button5: {fileID: 797345537}
+  buttonStartRound: {fileID: 0}
 --- !u!1 &921093087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,7 +1840,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 11.030852
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2219,6 +2222,7 @@ MonoBehaviour:
   button3: {fileID: 1328738309}
   button4: {fileID: 214594780}
   button5: {fileID: 797345537}
+  buttonStartRound: {fileID: 0}
 --- !u!1 &1378659392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,8 +2418,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511629601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.017667845, y: 0.017667845, z: 0.017667845}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1892060553}
@@ -2428,8 +2432,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 1010.99994, y: 566}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1511629603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2469,7 +2473,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1511629605
 Canvas:
   m_ObjectHideFlags: 0
@@ -2479,7 +2483,7 @@ Canvas:
   m_GameObject: {fileID: 1511629601}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 1129146418}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -2963,6 +2967,7 @@ MonoBehaviour:
   button3: {fileID: 0}
   button4: {fileID: 0}
   button5: {fileID: 0}
+  buttonStartRound: {fileID: 0}
 --- !u!1 &1734757896
 GameObject:
   m_ObjectHideFlags: 0
@@ -3522,6 +3527,7 @@ MonoBehaviour:
   button3: {fileID: 1328738309}
   button4: {fileID: 214594780}
   button5: {fileID: 797345537}
+  buttonStartRound: {fileID: 0}
 --- !u!1 &1942735131
 GameObject:
   m_ObjectHideFlags: 0
